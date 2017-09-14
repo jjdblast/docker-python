@@ -17,11 +17,16 @@ RUN apt-get update && apt-get install -y build-essential && \
     cd ../ && rm -rf vowpal_wabbit && \
     # python wrapper
     pip install vowpalwabbit && \
-    pip install seaborn python-dateutil dask pytagcloud pyyaml ggplot joblib \
-        husl geopy ml_metrics mne pyshp gensim && \
+    pip install seaborn python-dateutil dask pytagcloud pyyaml ggplot joblib husl geopy ml_metrics mne pyshp gensim && \
     conda install -y -c conda-forge spacy && python -m spacy download en && \
     # The apt-get version of imagemagick
-    apt-get -y install imagemagick && \
+    apt-get install build-essential autoconf automake autopoint chrpath cm-super-minimal debhelper dh-autoreconf  dh-strip-nondeterminism doxygen doxygen-latex gir1.2-rsvg-2.0 graphviz   libbz2-dev libcairo-script-interpreter2 libcairo2-dev libcdt5 libcgraph6   libclang1-3.6 libdjvulibre-dev libexif-dev libfftw3-bin libfftw3-dev  libfftw3-long3 libfftw3-quad3 libfile-stripnondeterminism-perl   libfontconfig1-dev libfreetype6-dev libgdk-pixbuf2.0-dev libglib2.0-dev   libgvc6 libgvpr2 libharfbuzz-dev libharfbuzz-gobject0 libice-dev   libilmbase-dev libjasper-dev libjbig-dev libjpeg-dev libjpeg-turbo8-dev   libjpeg8-dev libjs-jquery liblcms2-dev libllvm3.6v5 liblqr-1-0-dev   liblzma-dev libobjc-5-dev libobjc4 libopenexr-dev libpango1.0-dev  libpathplan4 libpcre3-dev libpcre32-3 libpcrecpp0v5 libperl-dev   libpixman-1-dev libpng12-dev libpotrace0 libptexenc1 libpthread-stubs0-dev   librsvg2-bin librsvg2-dev libsigsegv2 libsm-dev libsynctex1 libtexlua52   libtexluajit2 libtiff5-dev libtiffxx5 libwmf-dev libx11-dev libxau-dev   libxcb-render0-dev libxcb-shm0-dev libxcb1-dev libxdmcp-dev libxext-dev   libxft-dev libxml2-dev libxml2-utils libxrender-dev libxt-dev libzzip-0-13   m4 pkg-kde-tools po-debconf preview-latex-style tex-common texlive-base   texlive-binaries texlive-extra-utils texlive-font-utils   texlive-fonts-recommended texlive-latex-base texlive-latex-extra  texlive-latex-recommended texlive-pictures x11proto-core-dev   x11proto-input-dev x11proto-kb-dev x11proto-render-dev x11proto-xext-dev   xorg-sgml-doctools xsltproc xtrans-dev zlib1g-dev libtiff5-dev  xorg-dev libopenjp2-7-dev && \
+    wget http://www.imagemagick.org/download/ImageMagick.tar.gz && \
+    tar xzvf ImageMagick.tar.gz && cd cd ImageMagick-7.0.*/ && \
+    ./configure --prefix=/opt/magick7 && \
+    make && \
+    sudo make install && \
+
     apt-get -y install libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev && \
     apt-get -y install libtbb2 libtbb-dev libjpeg-dev libtiff-dev libjasper-dev && \
     apt-get -y install cmake && \
