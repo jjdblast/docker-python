@@ -5,8 +5,8 @@ ADD nbconvert-extensions.tpl /opt/kaggle/nbconvert-extensions.tpl
 
     # Use a fixed apt-get repo to stop intermittent failures due to flaky httpredir connections,
     # as described by Lionel Chan at http://stackoverflow.com/a/37426929/5881346
-RUN sed -i "s/httpredir.debian.org/debian.uchicago.edu/" /etc/apt/sources.list && \
-    apt-get update && apt-get install -y build-essential && \
+#RUN sed -i "s/httpredir.debian.org/debian.uchicago.edu/" /etc/apt/sources.list && \
+RUN apt-get update && apt-get install -y build-essential && \
     cd /usr/local/src && \
     pip install tensorflow && \
     # Vowpal Rabbit
