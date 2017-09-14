@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y build-essential && \
     # Vowpal Rabbit : Get libboost program-optiVons and zlib:
     apt-get install -y libboost-program-options-dev zlib1g-dev libboost-python-dev && \
     git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
-    cd vowpal_wabbit && make && make install && \
+    cd vowpal_wabbit && ./autogen.sh && make && make install && \
     cd ../ && rm -rf vowpal_wabbit && \
     # python wrapper
     pip install vowpalwabbit && \
