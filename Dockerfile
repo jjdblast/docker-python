@@ -9,8 +9,9 @@ ADD nbconvert-extensions.tpl /opt/kaggle/nbconvert-extensions.tpl
 RUN apt-get update && apt-get install -y build-essential && \
     cd /usr/local/src && \
     pip install tensorflow && \
-    # Vowpal Rabbit
+    # Vowpal Rabbit : Get libboost program-optiVons and zlib:
     apt-get install -y libboost-program-options-dev zlib1g-dev libboost-python-dev python-dev && \
+    apt-get install vowpal-wabbit && \
     cd /usr/lib/x86_64-linux-gnu/ && rm -f libboost_python.a && rm -f libboost_python.so && \
     ln -sf libboost_python-py34.so libboost_python.so && ln -sf libboost_python-py34.a libboost_python.a && \
     pip install vowpalwabbit && \
