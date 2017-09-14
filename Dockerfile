@@ -22,10 +22,9 @@ RUN apt-get update && apt-get install -y build-essential && \
     mkdir /opt/conda/var/lib/ && mkdir /opt/conda/var/lib/dbus && touch /opt/conda/var/lib/dbus/machine-id && \
     dbus-uuidgen > /opt/conda/var/lib/dbus/machine-id && \
     wget http://www.imagemagick.org/download/ImageMagick.tar.gz && \
-    tar xzvf ImageMagick.tar.gz && cd cd ImageMagick-7.0.*/ && \
-    ./configure --prefix=/opt/magick7 && \
-    make && \
-    sudo make install && \
+    tar xzvf ImageMagick.tar.gz && cd ImageMagick*/ && \
+    ./configure --prefix=/opt/magick7 && make && make install && \
+    cd ../ && rm -rf ImageMagick*/ && \
     # For opencv
     apt-get -y install libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev && \
     apt-get -y install libtbb2 libtbb-dev libjpeg-dev libtiff-dev libjasper-dev && \
